@@ -1,15 +1,13 @@
 %global srcname precis_i18n
 
 Name:           python-%{srcname}
-Version:        1.0.1
-Release:        3%{?dist}
+Version:        1.0.4
+Release:        1
 Summary:        Python library for internationalized usernames and passwords
 
 License:        MIT
 URL:            https://github.com/byllyfish/precis_i18n
 Source0:        https://github.com/byllyfish/precis_i18n/archive/v%{version}.tar.gz#/%{srcname}-%{version}.tar.gz
-# Support Unicode 12.1 for Python 3.8:
-Source1:	https://raw.githubusercontent.com/byllyfish/precis_i18n/7b6987e206881b002ddcc87dde16f978c080eedd/test/derived-props-12.1.txt
 
 BuildArch:      noarch
 
@@ -43,7 +41,6 @@ BuildRequires:  python3-devel
 
 %prep
 %autosetup -n %{srcname}-%{version}
-cp -p %{SOURCE1} test/
 
 %build
 %py3_build
@@ -61,6 +58,9 @@ cp -p %{SOURCE1} test/
 %{python3_sitelib}/%{srcname}/
 
 %changelog
+* Tue May 17 2022 lvxiaoqian <xiaoqian@nj.iscas.ac.cn> - 1.0.4-1
+- update to 1.0.4
+
 * Fri Jul 26 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.0.1-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
